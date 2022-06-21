@@ -6,30 +6,110 @@
     <title>サンプル</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
+        // ポケモンカードのmodel
+        function PokemonCard(_no, _name, _url) {
+            // デッキの何番目かを示す(0 ~ 59)
+            this.no = _no
+            // カード名
+            this.name = _name
+            // 画像URL
+            this.url = _url
+        }
+
+        // ポケモンカードを60枚持つデッキ
+        var deck = []
+
         $(function () {
+            // ボタン押下時にデッキコードからデッキを作成する
             $('#btn1').click(function () {
                 $.get("https://www.pokemon-card.com/deck/deck.html?deckID=ngQNn9-G35BmJ-QLn96L",
                     {},
                     function (response) {
                         // 改行ごとに配列に分ける
-                        var lineArray = response.split(/\r\n|\r|\n/);
+                        let lineArray = response.split(/\r\n|\r|\n/);
                         $.each(lineArray, function(index, line) {
-                            var result = line.indexOf("deck_pke");
-                            if (result !== -1) {
+                            // ポケモンをデッキに入れる
+                            if (line.indexOf("deck_pke") !== -1) {
                                 // valueを抽出する
-                                var value = $.trim(line).split(" ")[4].replace("value=", "").replace(/"/g, "")
-                                // ポケモンごとに分ける
-                                var pokemons = value.split("-")
-                                // カード情報を出力する
-                                var output = ""
+                                let value = $.trim(line).split(" ")[4].replace("value=", "").replace(/"/g, "")
+                                // カードの種類ごとに分ける
+                                let pokemons = value.split("-")
+                                // デッキにいれる
                                 $.each(pokemons, function(index, pokemon) {
-                                    // カード情報に分ける
-                                    var card = pokemon.split("_")
-                                    output += "ID: " + card[0] + ", 枚数: " + card[1] + "\n"
+                                    let cardSplit = pokemon.split("_")
+                                    for (let i = 0; i < cardSplit[1]; i++) {
+                                        deck.push(new PokemonCard(deck.length, cardSplit[0], ""))
+                                    }
                                 })
-                                alert(output);
+                            }
+
+                            // グッズをデッキに入れる
+                            if (line.indexOf("deck_gds") !== -1) {
+                                // valueを抽出する
+                                let value = $.trim(line).split(" ")[4].replace("value=", "").replace(/"/g, "")
+                                // カードの種類ごとに分ける
+                                let items = value.split("-")
+                                // デッキにいれる
+                                $.each(items, function(index, item) {
+                                    let cardSplit = item.split("_")
+                                    for (let i = 0; i < cardSplit[1]; i++) {
+                                        deck.push(new PokemonCard(deck.length, cardSplit[0], ""))
+                                    }
+                                })
+                            }
+
+                            // サポーターをデッキに入れる
+                            if (line.indexOf("deck_sup") !== -1) {
+                                // valueを抽出する
+                                let value = $.trim(line).split(" ")[4].replace("value=", "").replace(/"/g, "")
+                                // カードの種類ごとに分ける
+                                let supporters = value.split("-")
+                                // デッキにいれる
+                                $.each(supporters, function(index, supporter) {
+                                    let cardSplit = supporter.split("_")
+                                    for (let i = 0; i < cardSplit[1]; i++) {
+                                        deck.push(new PokemonCard(deck.length, cardSplit[0], ""))
+                                    }
+                                })
+                            }
+
+                            // スタジアムをデッキに入れる
+                            if (line.indexOf("deck_sta") !== -1) {
+                                // valueを抽出する
+                                let value = $.trim(line).split(" ")[4].replace("value=", "").replace(/"/g, "")
+                                // カードの種類ごとに分ける
+                                let stadiums = value.split("-")
+                                // デッキにいれる
+                                $.each(stadiums, function(index, stadium) {
+                                    let cardSplit = stadium.split("_")
+                                    for (let i = 0; i < cardSplit[1]; i++) {
+                                        deck.push(new PokemonCard(deck.length, cardSplit[0], ""))
+                                    }
+                                })
+                            }
+
+                            // エネルギーをデッキに入れる
+                            if (line.indexOf("deck_ene") !== -1) {
+                                // valueを抽出する
+                                let value = $.trim(line).split(" ")[4].replace("value=", "").replace(/"/g, "")
+                                // カードの種類ごとに分ける
+                                let energies = value.split("-")
+                                // デッキにいれる
+                                $.each(energies, function(index, energy) {
+                                    let cardSplit = energy.split("_")
+                                    for (let i = 0; i < cardSplit[1]; i++) {
+                                        deck.push(new PokemonCard(deck.length, cardSplit[0], ""))
+                                    }
+                                })
                             }
                         })
+
+                        // デッキ内容を出力する
+                        var output = ""
+                        $.each(deck, function(index, card) {
+                            output += card.no + "番目, ID: " + card.name + ", 画像URL: " + card.url + "\n"
+                        })
+                        $("pre").text(output)
                     }
                 );
             });
@@ -39,6 +119,8 @@
 
 <body>
     <input type="button" id="btn1" value="ngQNn9-G35BmJ-QLn96L">
+    <h1> デッキ内容を表示 </h1>
+    <pre>aaa</pre>
 </body>
 
 </html>
