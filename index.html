@@ -16,8 +16,18 @@
                         $.each(lineArray, function(index, line) {
                             var result = line.indexOf("deck_pke");
                             if (result !== -1) {
-                                // ポケモンのみを出力
-                                alert(line);
+                                // valueを抽出する
+                                var value = $.trim(line).split(" ")[4].replace("value=", "").replace(/"/g, "")
+                                // ポケモンごとに分ける
+                                var pokemons = value.split("-")
+                                // カード情報を出力する
+                                var output = ""
+                                $.each(pokemons, function(index, pokemon) {
+                                    // カード情報に分ける
+                                    var card = pokemon.split("_")
+                                    output += "ID: " + card[0] + ", 枚数: " + card[1] + "\n"
+                                })
+                                alert(output);
                             }
                         })
                     }
