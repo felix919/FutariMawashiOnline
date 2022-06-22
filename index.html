@@ -102,6 +102,17 @@
                                     }
                                 })
                             }
+
+                            // 画像URLを入れる
+                            if (line.indexOf("searchItemCardPict") !== -1) {
+                                let id = line.substring(27, 32)
+                                $.each(deck, function (index, card) {
+                                    if (card.name == id) {
+                                        card.url = line.split("'")[1]
+                                    }
+                                })
+                            }
+
                         })
 
                         // デッキ内容を出力する
