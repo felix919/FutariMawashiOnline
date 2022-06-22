@@ -108,7 +108,7 @@
                                 let id = line.substring(27, 32)
                                 $.each(deck, function (index, card) {
                                     if (card.name == id) {
-                                        card.url = line.split("'")[1]
+                                        card.url = "https://www.pokemon-card.com" + line.split("'")[1]
                                     }
                                 })
                             }
@@ -117,8 +117,12 @@
 
                         // デッキ内容を出力する
                         var output = ""
+                        var imgList = document.getElementById("img")
                         $.each(deck, function(index, card) {
                             output += card.no + "番目, ID: " + card.name + ", 画像URL: " + card.url + "\n"
+                            var img = document.createElement("li")
+                            img.innerHTML = "<img src=" + card.url + " width=\"10%\" height=\"10%\">"
+                            imgList.appendChild(img)
                         })
                         $("pre").text(output)
                     }
@@ -132,6 +136,9 @@
     <input type="button" id="btn1" value="ngQNn9-G35BmJ-QLn96L">
     <h1> デッキ内容を表示 </h1>
     <pre>aaa</pre>
+    <ul id="img">
+        <li></li>
+    </ul>
 </body>
 
 </html>
