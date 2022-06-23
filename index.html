@@ -27,7 +27,8 @@
                 $.get("https://www.pokemon-card.com/deck/deck.html?deckID=" + $('#deckCode').val(),
                     {},
                     function (response) {
-                        // 改行ごとに配列に分ける
+                        // デッキを作成する
+                        deck.splice(0);
                         let lineArray = response.split(/\r\n|\r|\n/);
                         $.each(lineArray, function(index, line) {
                             // ポケモンをデッキに入れる
@@ -120,6 +121,11 @@
                         // デッキ内容を出力する
                         var output = ""
                         var imgList = document.getElementById("img")
+
+                        while(imgList.firstChild) {
+                            imgList.removeChild(imgList.firstChild)
+                        }
+                        
                         $.each(deck, function(index, card) {
                             output += card.no + "番目, ID: " + card.name + ", 画像URL: " + card.url + "\n"
                             var img = document.createElement("li")
