@@ -123,7 +123,7 @@
                         $.each(deck, function(index, card) {
                             output += card.no + "番目, ID: " + card.name + ", 画像URL: " + card.url + "\n"
                             var img = document.createElement("li")
-                            img.innerHTML = "<img src=" + card.url + " width=\"60%\" height=\"60%\">"
+                            img.innerHTML = "<img src=" + card.url + ">"
                             imgList.appendChild(img)
                         })
                         $("pre").text(output)
