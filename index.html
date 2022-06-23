@@ -136,14 +136,14 @@
 
                         // 並べ替え可能なドラッグアンドドロップリストの作成 
                         var battle = document.getElementById("battleStage")
-                        var sortableImg = Sortable.create(battle, {
+                        var battleImg = Sortable.create(battle, {
                             group: {
                                 name: "card"
                             },
                             animation: 100
                         })
                         var imgList = document.getElementById("img")
-                        var sortableImg = Sortable.create(imgList, {
+                        var deckImg = Sortable.create(imgList, {
                             group: {
                                 name: "card"
                             },
