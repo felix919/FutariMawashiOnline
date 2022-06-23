@@ -135,6 +135,12 @@
                         $("pre").text(output)
 
                         // 並べ替え可能なドラッグアンドドロップリストの作成 
+                        var sortableDeckImg = Sortable.create(deckList, {
+                            group: {
+                                name: "card"
+                            },
+                            animation: 100
+                        })
                         var battleImg = document.getElementById("battle")
                         var sortableBattleImg = Sortable.create(battleImg, {
                             group: {
@@ -142,7 +148,50 @@
                             },
                             animation: 100
                         })
-                        var sortableDeckImg = Sortable.create(deckList, {
+                        var bench1Img = document.getElementById("bench1")
+                        var sortableBench1Img = Sortable.create(bench1Img, {
+                            group: {
+                                name: "card"
+                            },
+                            animation: 100
+                        })
+                        var bench2Img = document.getElementById("bench2")
+                        var sortableBench1Img = Sortable.create(bench2Img, {
+                            group: {
+                                name: "card"
+                            },
+                            animation: 100
+                        })
+                        var bench3Img = document.getElementById("bench3")
+                        var sortableBench1Img = Sortable.create(bench3Img, {
+                            group: {
+                                name: "card"
+                            },
+                            animation: 100
+                        })
+                        var bench4Img = document.getElementById("bench4")
+                        var sortableBench4Img = Sortable.create(bench4Img, {
+                            group: {
+                                name: "card"
+                            },
+                            animation: 100
+                        })
+                        var bench5Img = document.getElementById("bench5")
+                        var sortableBench5Img = Sortable.create(bench5Img, {
+                            group: {
+                                name: "card"
+                            },
+                            animation: 100
+                        })
+                        var sideImg = document.getElementById("side")
+                        var sortableSideImg = Sortable.create(sideImg, {
+                            group: {
+                                name: "card"
+                            },
+                            animation: 100
+                        })
+                        var trashImg = document.getElementById("trash")
+                        var sortableTrashImg = Sortable.create(trashImg, {
                             group: {
                                 name: "card"
                             },
@@ -160,11 +209,26 @@
     <label for="inputDeckCode">デッキコードを入力してください</label>
     <input type="text" id="deckCode" value="ngQNn9-G35BmJ-QLn96L">
     <input type="button" id="getDeckCode" value="デッキを登録">
-    <ul id="battle" class="battleStage">
-    </ul>
     <ul id="deck" class="deckList">
     </ul>
-    <ul id="hand" class="handList"></ul>
+    <ul id="battle" class="battleStage">
+    </ul>
+    <ul id="bench1" class="benchStage1">
+    </ul>
+    <ul id="bench2" class="benchStage2">
+    </ul>
+    <ul id="bench3" class="benchStage3">
+    </ul>
+    <ul id="bench4" class="benchStage4">
+    </ul>
+    <ul id="bench5" class="benchStage5">
+    </ul>
+    <ul id="hand" class="handList">
+    </ul>
+    <ul id="side" class="sideList">
+    </ul>
+    <ul id="trash" class="trashList">
+    </ul>
 </body>
 
 </html>
