@@ -1,0 +1,33 @@
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent
+}
+
+h1 {
+    color: blueviolet;
+}
+
+#preText {
+    background-color: yellow;
+}
+
+.deck-list {
+    background-color: greenyellow;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    min-height: 105px;
+}
+
+li {
+    list-style: none;
+    display: block;
+    width: 73px;
+}

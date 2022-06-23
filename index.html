@@ -6,6 +6,7 @@
     <title>サンプル</title>
     <script type="text/javascript" src="./Sortable-master/Sortable.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
     <script>
         // ポケモンカードのmodel
         function PokemonCard(_no, _name, _url) {
@@ -122,7 +123,7 @@
                         $.each(deck, function(index, card) {
                             output += card.no + "番目, ID: " + card.name + ", 画像URL: " + card.url + "\n"
                             var img = document.createElement("li")
-                            img.innerHTML = "<img src=" + card.url + " width=\"10%\" height=\"10%\">"
+                            img.innerHTML = "<img src=" + card.url + " width=\"100%\" height=\"100%\">"
                             imgList.appendChild(img)
                         })
                         $("pre").text(output)
@@ -142,8 +143,8 @@
     <label for="inputDeckCode">デッキコードを入力してください</label>
     <input type="text" id="deckCode" value="ngQNn9-G35BmJ-QLn96L">
     <input type="button" id="getDeckCode" value="デッキを登録">
-    <pre>aaa</pre>
-    <ul id="img">
+    <pre id="preText">aaa</pre>
+    <ul id="img" class="deck-list">
     </ul>
 </body>
 
