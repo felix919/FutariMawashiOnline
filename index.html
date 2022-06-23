@@ -134,9 +134,21 @@
                         })
                         $("pre").text(output)
 
-                        // 並べ替え可能なドラッグアンドドロップリストの作成
+                        // 並べ替え可能なドラッグアンドドロップリストの作成 
+                        var battle = document.getElementById("battleStage")
+                        var sortableImg = Sortable.create(battle, {
+                            group: {
+                                name: "card"
+                            },
+                            animation: 100
+                        })
                         var imgList = document.getElementById("img")
-                        var sortableImg = Sortable.create(imgList, {animation: 100})
+                        var sortableImg = Sortable.create(imgList, {
+                            group: {
+                                name: "card"
+                            },
+                            animation: 100
+                        })
                     }
                 );
             });
@@ -149,6 +161,8 @@
     <label for="inputDeckCode">デッキコードを入力してください</label>
     <input type="text" id="deckCode" value="ngQNn9-G35BmJ-QLn96L">
     <input type="button" id="getDeckCode" value="デッキを登録">
+    <ul id="battleStage" class="battle">
+    </ul>
     <ul id="img" class="deck-list">
     </ul>
 </body>
