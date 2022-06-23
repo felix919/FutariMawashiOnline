@@ -120,30 +120,29 @@
 
                         // デッキ内容を出力する
                         var output = ""
-                        var imgList = document.getElementById("img")
+                        var deckList = document.getElementById("deck")
 
-                        while(imgList.firstChild) {
-                            imgList.removeChild(imgList.firstChild)
+                        while(deckList.firstChild) {
+                            deckList.removeChild(deckList.firstChild)
                         }
                         
                         $.each(deck, function(index, card) {
                             output += card.no + "番目, ID: " + card.name + ", 画像URL: " + card.url + "\n"
                             var img = document.createElement("li")
                             img.innerHTML = "<img src=" + card.url + " width=\"100%\" height=\"100%\">"
-                            imgList.appendChild(img)
+                            deckList.appendChild(img)
                         })
                         $("pre").text(output)
 
                         // 並べ替え可能なドラッグアンドドロップリストの作成 
-                        var battle = document.getElementById("battleStage")
-                        var battleImg = Sortable.create(battle, {
+                        var battleImg = document.getElementById("battle")
+                        var sortableBattleImg = Sortable.create(battleImg, {
                             group: {
                                 name: "card"
                             },
                             animation: 100
                         })
-                        var imgList = document.getElementById("img")
-                        var deckImg = Sortable.create(imgList, {
+                        var sortableDeckImg = Sortable.create(deckList, {
                             group: {
                                 name: "card"
                             },
@@ -161,10 +160,11 @@
     <label for="inputDeckCode">デッキコードを入力してください</label>
     <input type="text" id="deckCode" value="ngQNn9-G35BmJ-QLn96L">
     <input type="button" id="getDeckCode" value="デッキを登録">
-    <ul id="battleStage" class="battle">
+    <ul id="battle" class="battleStage">
     </ul>
-    <ul id="img" class="deck-list">
+    <ul id="deck" class="deckList">
     </ul>
+    <ul id="hand" class="handList"></ul>
 </body>
 
 </html>
