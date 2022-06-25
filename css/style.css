@@ -18,10 +18,20 @@ h1 {
 }
 
 .benchStage {
+    display: table;
+    margin-top: 5px;
+    min-height: 130px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bench {
+    display: table-cell;
     display: flex;
     justify-content: center;
     margin-top: 5px;
     min-height: 105px;
+    min-width: 100px;
 }
 
 .battleStage {
