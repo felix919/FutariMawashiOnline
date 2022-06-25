@@ -17,6 +17,13 @@ h1 {
     background-color: yellow;
 }
 
+.benchStage {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    min-height: 105px;
+}
+
 .battleStage {
     background-color: rgb(255, 47, 47);
     display: flex;
@@ -24,6 +31,26 @@ h1 {
     flex-wrap: wrap;
     margin-top: 5px;
     min-height: 105px;
+}
+
+#bench1 {
+    background-color: orange;
+}
+
+#bench2 {
+    background-color: yellow;
+}
+
+#bench3 {
+    background-color: green;
+}
+
+#bench4 {
+    background-color: blue;
+}
+
+#bench5 {
+    background-color: purple;
 }
 
 .deckList {
