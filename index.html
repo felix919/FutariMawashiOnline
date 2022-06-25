@@ -125,17 +125,23 @@
                         while(deckList.firstChild) {
                             deckList.removeChild(deckList.firstChild)
                         }
-                        
+
                         $.each(deck, function(index, card) {
                             output += card.no + "番目, ID: " + card.name + ", 画像URL: " + card.url + "\n"
                             var img = document.createElement("li")
                             img.innerHTML = "<img src=" + card.url + " width=\"100%\" height=\"100%\">"
                             deckList.appendChild(img)
                         })
-                        $("pre").text(output)
 
                         // 並べ替え可能なドラッグアンドドロップリストの作成 
                         var sortableDeckImg = Sortable.create(deckList, {
+                            group: {
+                                name: "card"
+                            },
+                            animation: 100
+                        })
+                        var stadiumImg = document.getElementById("stadium")
+                        var sortableStadiumImg = Sortable.create(stadiumImg, {
                             group: {
                                 name: "card"
                             },
@@ -183,6 +189,13 @@
                             },
                             animation: 100
                         })
+                        var handImg = document.getElementById("hand")
+                        var sortableHandImg = Sortable.create(handImg, {
+                            group: {
+                                name: "card"
+                            },
+                            animation: 100
+                        })
                         var sideImg = document.getElementById("side")
                         var sortableSideImg = Sortable.create(sideImg, {
                             group: {
@@ -192,6 +205,13 @@
                         })
                         var trashImg = document.getElementById("trash")
                         var sortableTrashImg = Sortable.create(trashImg, {
+                            group: {
+                                name: "card"
+                            },
+                            animation: 100
+                        })
+                        var lostzoneImg = document.getElementById("lostzone")
+                        var sortableLostzoneImg = Sortable.create(lostzoneImg, {
                             group: {
                                 name: "card"
                             },
@@ -211,26 +231,47 @@
     <input type="button" id="getDeckCode" value="デッキを登録">
     <ul id="deck" class="deckList">
     </ul>
-    <ul id="battle" class="battleStage">
-    </ul>
-    <div class="benchStage">
-        <ul id="bench1" class="bench">
+    <div class="playArea">
+        <div class="sideArea">
+            <ul id="side" class="sideList">
+            </ul>
+        </div>
+        <div class="battleArea">
+            <ul id="stadium" class="stadiumList">
+            </ul>
+            <ul id="battle" class="battleList">
+            </ul>
+        </div>
+        <div class="nullArea">
+        </div>
+        <div class="benchArea">
+            <ul id="bench1" class="bench">
+            </ul>
+            <ul id="bench2" class="bench">
+            </ul>
+            <ul id="bench3" class="bench">
+            </ul>
+            <ul id="bench4" class="bench">
+            </ul>
+            <ul id="bench5" class="bench">
+            </ul>
+        </div>
+    </div>
+    <div class="handAndTrashAndLostzoneArea">
+        <ul id="hand" class="handList">
         </ul>
-        <ul id="bench2" class="bench">
+        <div class="buttonArea">
+            <button type="button" id="draw" class="handButton">1枚ドロー</button>
+            <button type="button" id="topFive" class="handButton">上から5枚見る</button>
+            <button type="button" id="checkDeck" class="handButton">山札を見る</button>
+            <button type="button" id="marry" class="handButton">マリィ</button>
+        </div>
+        <ul id="trash" class="otherList">
         </ul>
-        <ul id="bench3" class="bench">
-        </ul>
-        <ul id="bench4" class="bench">
-        </ul>
-        <ul id="bench5" class="bench">
+        <ul id="lostzone" class="otherList">
         </ul>
     </div>
-    <ul id="hand" class="handList">
-    </ul>
-    <ul id="side" class="sideList">
-    </ul>
-    <ul id="trash" class="trashList">
-    </ul>
+    
 </body>
 
 </html>

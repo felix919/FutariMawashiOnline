@@ -17,63 +17,202 @@ h1 {
     background-color: yellow;
 }
 
-.benchStage {
-    display: table;
-    margin-top: 5px;
-    min-height: 130px;
-    display: flex;
-    justify-content: space-between;
-}
 
-.bench {
-    display: table-cell;
-    display: flex;
-    justify-content: center;
-    margin-top: 5px;
-    min-height: 105px;
-    min-width: 100px;
-}
-
-.battleStage {
-    background-color: rgb(255, 47, 47);
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 5px;
-    min-height: 105px;
-}
-
-#bench1 {
-    background-color: orange;
-}
-
-#bench2 {
-    background-color: yellow;
-}
-
-#bench3 {
-    background-color: green;
-}
-
-#bench4 {
-    background-color: blue;
-}
-
-#bench5 {
-    background-color: purple;
-}
-
+/*山札の設定*/
 .deckList {
     background-color: greenyellow;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 5px;
-    min-height: 105px;
+    min-height: 100px;
+}
+
+/*サイド、バトル場、ベンチの設定*/
+.playArea {
+    display: table;
+    margin-top: 5px;
+    min-height: 100px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+
+/*サイド設定*/
+.sideArea {
+    display: table-cell;
+    display: flex;
+    justify-content: start;
+    margin-top: 5px;
+    min-height: 100px;
+    width: 300px;
+}
+
+.sideList {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    min-height: 100px;
+    min-width: 300px;
+}
+
+#side {
+    background-color: teal;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+/*バトル場、スタジアムの設定*/
+.battleArea {
+    display: table-cell;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    min-height: 100px;
+    width: 1580px;
+    gap: 0px 40px;
+}
+
+.stadiumList {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    min-height: 100px;
+    width: 150px;
+}
+
+#stadium {
+    background-color: maroon;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/*バトル場の設定*/
+.battleList {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    min-height: 100px;
+    width: 600px;
+}
+
+#battle {
+    background-color: rgb(255, 47, 47);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/*見た目を整えるために、空のテーブルを作成*/
+/* 空のテーブルの設定*/
+.nullArea {
+    display: table-cell;
+    display: flex;
+    justify-content: start;
+    margin-top: 5px;
+    min-height: 100px;
+    width: 300px;
+}
+
+/*ベンチの設定*/
+.benchArea {
+    display: table-cell;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    min-height: 100px;
+    width: 1580px;
+}
+
+.bench {
+    display: table-cell;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    min-height: 100px;
+    width: 300px;
+}
+
+#bench1 {
+    background-color: orange;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#bench2 {
+    background-color: yellow;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#bench3 {
+    background-color: green;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#bench4 {
+    background-color: blue;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#bench5 {
+    background-color: purple;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/*手札の設定*/
+.handAndTrashAndLostzoneArea {
+    display: table;
+    margin-top: 5px;
+    min-height: 100px;
+    display: flex;
+    justify-content: start;
+}
+
+.handList {
+    display: table-cell;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    min-height: 100px;
+    min-width: 1000px;
+}
+
+#hand {
+    background-color: whitesmoke;
+    flex-wrap: wrap;
+}
+
+.handButton {
+    display: flex;
+    flex-direction: column;
+}
+
+/*トラッシュ、ロストゾーンの設定*/
+.otherList {
+    display: table-cell;
+    display: flex;
+    justify-content: start;
+    margin-top: 5px;
+    min-height: 100px;
+    min-width: 400px;
+}
+
+#trash {
+    background-color: black;
+    flex-wrap: wrap;
+}
+
+#lostzone {
+    background-color: silver;
+    flex-wrap: wrap;
 }
 
 li {
     list-style: none;
     display: block;
     width: 73px;
+    height: 100px;
 }
