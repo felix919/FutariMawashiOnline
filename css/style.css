@@ -17,9 +17,12 @@ h1 {
     background-color: yellow;
 }
 
-
 /*山札の設定*/
 .deckList {
+    display: none;
+}
+
+.showDeckList {
     background-color: greenyellow;
     display: flex;
     justify-content: center;

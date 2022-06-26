@@ -249,6 +249,13 @@
                 array[i] = t;
             }
         }
+
+        // 山札表示・非表示
+        $(function() {
+            $("#checkDeck").click(function() {
+                $(".deckList").toggleClass("showDeckList")
+            })
+        })
     </script>
 </head>
 
