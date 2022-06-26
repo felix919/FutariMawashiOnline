@@ -229,6 +229,14 @@
                     }
                 );
             });
+
+            // 1枚ドローする
+            $('#draw').click(function () {
+                var handList = document.getElementById("hand")
+                var deckList = document.getElementById("deck")
+                handList.appendChild(deckList.firstChild)
+                deckList.removeChild(handList.firstChild)
+            });
         });
 
         //シャッフル関数
