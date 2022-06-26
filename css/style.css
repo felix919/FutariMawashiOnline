@@ -17,6 +17,10 @@ h1 {
     background-color: yellow;
 }
 
+.titleAndArea {
+    display: table;
+}
+
 /*山札の設定*/
 .deckList {
     display: none;
@@ -44,7 +48,6 @@ h1 {
 /*サイド設定*/
 .sideArea {
     display: table-cell;
-    display: flex;
     justify-content: start;
     margin-top: 5px;
     min-height: 100px;

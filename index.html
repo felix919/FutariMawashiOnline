@@ -264,47 +264,83 @@
     <label for="inputDeckCode">デッキコードを入力してください</label>
     <input type="text" id="deckCode" value="ngQNn9-G35BmJ-QLn96L">
     <input type="button" id="getDeckCode" value="デッキを登録">
-    <ul id="deck" class="deckList">
-    </ul>
+    <div class="titleAndArea">
+        <label>山札</label><br>
+        <ul id="deck" class="deckList">
+        </ul>
+    </div>
     <div class="playArea">
-        <div class="sideArea">
+        <div class="sideArea titleAndArea">
+            <label>サイド</label><br>
             <ul id="side" class="sideList">
             </ul>
         </div>
         <div class="battleArea">
-            <ul id="stadium" class="stadiumList">
-            </ul>
-            <ul id="battle" class="battleList">
-            </ul>
+            <div class="titleAndArea">
+                <label>スタジアム</label><br>
+                <ul id="stadium" class="stadiumList">
+                </ul>
+            </div>
+            <div class="titleAndArea">
+                <label>バトル場</label><br>
+                <ul id="battle" class="battleList">
+                </ul>
+            </div>
         </div>
         <div class="nullArea">
         </div>
         <div class="benchArea">
-            <ul id="bench1" class="bench">
-            </ul>
-            <ul id="bench2" class="bench">
-            </ul>
-            <ul id="bench3" class="bench">
-            </ul>
-            <ul id="bench4" class="bench">
-            </ul>
-            <ul id="bench5" class="bench">
-            </ul>
+            <div class="titleAndArea">
+                <label>ベンチ1</label><br>
+                <ul id="bench1" class="bench">
+                </ul>
+            </div>
+            <div class="titleAndArea">
+                <label>ベンチ2</label><br>
+                <ul id="bench2" class="bench">
+                </ul>
+            </div>
+            <div class="titleAndArea">
+                <label>ベンチ3</label><br>
+                <ul id="bench3" class="bench">
+                </ul>
+            </div>
+            <div class="titleAndArea">
+                <label>ベンチ4</label><br>
+                <ul id="bench4" class="bench">
+                </ul>
+            </div>
+            <div class="titleAndArea">
+                <label>ベンチ5</label><br>
+                <ul id="bench5" class="bench">
+                </ul>
+            </div>
         </div>
     </div>
     <div class="handAndTrashAndLostzoneArea">
-        <ul id="hand" class="handList">
-        </ul>
+        
+        <div class="titleAndArea">
+            <label>手札</label><br>
+            <ul id="hand" class="handList">
+            </ul>
+        </div>
         <div class="buttonArea">
+            <label></label><br>
             <button type="button" id="draw" class="handButton">1枚ドロー</button>
             <button type="button" id="topFive" class="handButton">上から5枚見る</button>
             <button type="button" id="checkDeck" class="handButton">山札を見る</button>
             <button type="button" id="marry" class="handButton">マリィ</button>
         </div>
-        <ul id="trash" class="otherList">
-        </ul>
-        <ul id="lostzone" class="otherList">
-        </ul>
+        <div class="titleAndArea">
+            <label>トラッシュ</label><br>
+            <ul id="trash" class="otherList">
+            </ul>
+        </div>
+        <div class="titleAndArea">
+            <label>ロストゾーン</label><br>
+            <ul id="lostzone" class="otherList">
+            </ul>
+        </div>
     </div>
     
 </body>
