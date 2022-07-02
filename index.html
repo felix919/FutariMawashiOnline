@@ -18,6 +18,8 @@
             this.url = _url
         }
 
+        let CARD_BACK = "https://www.pokemon-card.com/assets/images/noimage/poke_ura.jpg"
+
         // ポケモンカードを60枚持つデッキ
         var deck = []
 
@@ -175,26 +177,36 @@
 
 
                         // 手札分デッキから引き、手札エリアに表示する
+                        // 山札を作成する
                         shuffle(deck)
-                        for (let i = 0; i < 7; i++) {
-                            var liImg = document.createElement("li")
-                            liImg.innerHTML = "<img src=" + deck.shift().url + " width=\"100%\" height=\"100%\">"
-                            handList.appendChild(liImg)
-                        }
-
-                        // サイドに6枚追加する
-                        for (let i = 0; i < 6; i++) {
-                            var liImg = document.createElement("li")
-                            liImg.innerHTML = "<img src=" + deck.shift().url + " width=\"100%\" height=\"100%\">"
-                            sideList.appendChild(liImg)
-                        }
-
-                        // 残りの山札を表示する
                         $.each(deck, function(index, card) {
-                            var img = document.createElement("li")
-                            img.innerHTML = "<img src=" + card.url + " width=\"100%\" height=\"100%\">"
-                            deckList.appendChild(img)
+                            var liImg = document.createElement("li")
+                            liImg.innerHTML = "<img src=" + card.url + " width=\"100%\" height=\"100%\">"
+                            liImg.onclick = function () {
+                                console.log(this.innerHTML)
+                                if (this.innerHTML.includes(CARD_BACK)) {
+                                    // 裏向きなら表向きにする
+                                    this.innerHTML = "<img src=" + card.url + " alt=" + card.url + " width=\"100%\" height=\"100%\">"
+                                } else {
+                                    // 表向きなら裏向きにする
+                                    this.innerHTML = "<img src=" + CARD_BACK + " alt=" + card.url + " width=\"100%\" height=\"100%\">"
+                                }
+                            }
+                            deckList.appendChild(liImg)
                         })
+
+                        // 山札から手札に7枚移動する
+                        for (let i = 0; i < 7; i++) {
+                            handList.appendChild(deckList.removeChild(deckList.firstChild))
+                        }
+
+                        // 山札からサイドに6枚移動する
+                        for (let i = 0; i < 6; i++) {
+                            var child = deckList.removeChild(deckList.firstChild)
+                            // クリックイベントを発動させて裏向きにする
+                            child.click()
+                            sideList.appendChild(child)
+                        }
 
                         // 並べ替え可能なドラッグアンドドロップリストの作成 
                         Sortable.create(deckList, {
@@ -275,9 +287,15 @@
 
             // 1枚ドローする
             $('#draw').click(function () {
+                var deckList = document.getElementById("deck")
+                var handList = document.getElementById("hand")
                 handList.appendChild(deckList.firstChild)
                 deckList.removeChild(deckList.firstChild)
             });
+
+            $('button').click(function() {
+                console.log("クリックしたよ")
+            })
         });
 
         //シャッフル関数
