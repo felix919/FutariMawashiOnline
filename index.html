@@ -21,7 +21,23 @@
         // ポケモンカードを60枚持つデッキ
         var deck = []
 
+
         $(function () {
+            // 各フィールドの初期化
+            var lostzoneList = document.getElementById("lostzone")
+            var deckList = document.getElementById("deck")
+            var handList = document.getElementById("hand")
+            var stadiumList = document.getElementById("stadium")
+            var battleList = document.getElementById("battle")
+            var bench1List = document.getElementById("bench1")
+            var bench2List = document.getElementById("bench2")
+            var bench3List = document.getElementById("bench3")
+            var bench4List = document.getElementById("bench4")
+            var bench5List = document.getElementById("bench5")
+            var sideList = document.getElementById("side")
+            var trashList = document.getElementById("trash")
+            var lostzoneList = document.getElementById("lostzone")
+
             // ボタン押下時にデッキコードからデッキを作成する
             $('#getDeckCode').click(function () {
                 $.get("https://www.pokemon-card.com/deck/deck.html?deckID=" + $('#deckCode').val(),
@@ -119,52 +135,39 @@
                         })
 
                         // それぞれのフィールドを空にする
-                        var deckList = document.getElementById("deck")
-                        shuffle(deck)
                         while(deckList.firstChild) {
                             deckList.removeChild(deckList.firstChild)
                         }
-                        var handList = document.getElementById("hand")
                         while(handList.firstChild) {
                             handList.removeChild(handList.firstChild)
                         }
-                        var stadiumList = document.getElementById("stadium")
                         while(stadiumList.firstChild) {
                             stadiumList.removeChild(stadiumList.firstChild)
                         }
-                        var battleList = document.getElementById("battle")
                         while(battleList.firstChild) {
                             battleList.removeChild(battleList.firstChild)
                         }
-                        var bench1List = document.getElementById("bench1")
                         while(bench1List.firstChild) {
                             bench1List.removeChild(bench1List.firstChild)
                         }
-                        var bench2List = document.getElementById("bench2")
                         while(bench2List.firstChild) {
                             bench2List.removeChild(bench2List.firstChild)
                         }
-                        var bench3List = document.getElementById("bench3")
                         while(bench3List.firstChild) {
                             bench3List.removeChild(bench3List.firstChild)
                         }
-                        var bench4List = document.getElementById("bench4")
                         while(bench4List.firstChild) {
                             bench4List.removeChild(bench4List.firstChild)
                         }
-                        var bench5List = document.getElementById("bench5")
                         while(bench5List.firstChild) {
                             bench5List.removeChild(bench5List.firstChild)
                         }
-                        var sideList = document.getElementById("side")
                         while(sideList.firstChild) {
                             sideList.removeChild(sideList.firstChild)
                         }
-                        var trashList = document.getElementById("trash")
                         while(trashList.firstChild) {
                             trashList.removeChild(trashList.firstChild)
                         }
-                        var lostzoneList = document.getElementById("lostzone")
                         while(lostzoneList.firstChild) {
                             lostzoneList.removeChild(lostzoneList.firstChild)
                         }
@@ -172,10 +175,18 @@
 
 
                         // 手札分デッキから引き、手札エリアに表示する
+                        shuffle(deck)
                         for (let i = 0; i < 7; i++) {
                             var liImg = document.createElement("li")
                             liImg.innerHTML = "<img src=" + deck.shift().url + " width=\"100%\" height=\"100%\">"
                             handList.appendChild(liImg)
+                        }
+
+                        // サイドに6枚追加する
+                        for (let i = 0; i < 6; i++) {
+                            var liImg = document.createElement("li")
+                            liImg.innerHTML = "<img src=" + deck.shift().url + " width=\"100%\" height=\"100%\">"
+                            sideList.appendChild(liImg)
                         }
 
                         // 残りの山札を表示する
@@ -264,8 +275,6 @@
 
             // 1枚ドローする
             $('#draw').click(function () {
-                var handList = document.getElementById("hand")
-                var deckList = document.getElementById("deck")
                 handList.appendChild(deckList.firstChild)
                 deckList.removeChild(deckList.firstChild)
             });
