@@ -118,7 +118,7 @@
 
                         })
 
-                        // デッキ内容を出力する
+                        // それぞれのフィールドを空にする
                         var deckList = document.getElementById("deck")
                         shuffle(deck)
                         while(deckList.firstChild) {
@@ -128,6 +128,48 @@
                         while(handList.firstChild) {
                             handList.removeChild(handList.firstChild)
                         }
+                        var stadiumList = document.getElementById("stadium")
+                        while(stadiumList.firstChild) {
+                            stadiumList.removeChild(stadiumList.firstChild)
+                        }
+                        var battleList = document.getElementById("battle")
+                        while(battleList.firstChild) {
+                            battleList.removeChild(battleList.firstChild)
+                        }
+                        var bench1List = document.getElementById("bench1")
+                        while(bench1List.firstChild) {
+                            bench1List.removeChild(bench1List.firstChild)
+                        }
+                        var bench2List = document.getElementById("bench2")
+                        while(bench2List.firstChild) {
+                            bench2List.removeChild(bench2List.firstChild)
+                        }
+                        var bench3List = document.getElementById("bench3")
+                        while(bench3List.firstChild) {
+                            bench3List.removeChild(bench3List.firstChild)
+                        }
+                        var bench4List = document.getElementById("bench4")
+                        while(bench4List.firstChild) {
+                            bench4List.removeChild(bench4List.firstChild)
+                        }
+                        var bench5List = document.getElementById("bench5")
+                        while(bench5List.firstChild) {
+                            bench5List.removeChild(bench5List.firstChild)
+                        }
+                        var sideList = document.getElementById("side")
+                        while(sideList.firstChild) {
+                            sideList.removeChild(sideList.firstChild)
+                        }
+                        var trashList = document.getElementById("trash")
+                        while(trashList.firstChild) {
+                            trashList.removeChild(trashList.firstChild)
+                        }
+                        var lostzoneList = document.getElementById("lostzone")
+                        while(lostzoneList.firstChild) {
+                            lostzoneList.removeChild(lostzoneList.firstChild)
+                        }
+                        
+
 
                         // 手札分デッキから引き、手札エリアに表示する
                         for (let i = 0; i < 7; i++) {
@@ -144,83 +186,73 @@
                         })
 
                         // 並べ替え可能なドラッグアンドドロップリストの作成 
-                        var sortableDeckImg = Sortable.create(deckList, {
+                        Sortable.create(deckList, {
                             group: {
                                 name: "card"
                             },
                             animation: 100
                         })
-                        var stadiumImg = document.getElementById("stadium")
-                        var sortableStadiumImg = Sortable.create(stadiumImg, {
+                        Sortable.create(stadiumList, {
                             group: {
                                 name: "card"
                             },
                             animation: 100
                         })
-                        var battleImg = document.getElementById("battle")
-                        var sortableBattleImg = Sortable.create(battleImg, {
+                        Sortable.create(battleList, {
                             group: {
                                 name: "card"
                             },
                             animation: 100
                         })
-                        var bench1Img = document.getElementById("bench1")
-                        var sortableBench1Img = Sortable.create(bench1Img, {
+                        Sortable.create(bench1List, {
                             group: {
                                 name: "card"
                             },
                             animation: 100
                         })
-                        var bench2Img = document.getElementById("bench2")
-                        var sortableBench1Img = Sortable.create(bench2Img, {
+                        Sortable.create(bench2List, {
                             group: {
                                 name: "card"
                             },
                             animation: 100
                         })
-                        var bench3Img = document.getElementById("bench3")
-                        var sortableBench1Img = Sortable.create(bench3Img, {
+                        Sortable.create(bench3List, {
                             group: {
                                 name: "card"
                             },
                             animation: 100
                         })
-                        var bench4Img = document.getElementById("bench4")
-                        var sortableBench4Img = Sortable.create(bench4Img, {
+                        Sortable.create(bench4List, {
                             group: {
                                 name: "card"
                             },
                             animation: 100
                         })
-                        var bench5Img = document.getElementById("bench5")
-                        var sortableBench5Img = Sortable.create(bench5Img, {
+                        Sortable.create(bench5List, {
                             group: {
                                 name: "card"
                             },
                             animation: 100
                         })
-                        var sortableHandList = Sortable.create(handList, {
+                        Sortable.create(handList, {
                             group: {
                                 name: "card"
                             },
                             animation: 100
                         })
-                        var sideImg = document.getElementById("side")
-                        var sortableSideImg = Sortable.create(sideImg, {
+                        Sortable.create(sideList, {
                             group: {
                                 name: "card"
                             },
                             animation: 100
                         })
-                        var trashImg = document.getElementById("trash")
-                        var sortableTrashImg = Sortable.create(trashImg, {
+                        Sortable.create(trashList, {
                             group: {
                                 name: "card"
                             },
                             animation: 100
                         })
-                        var lostzoneImg = document.getElementById("lostzone")
-                        var sortableLostzoneImg = Sortable.create(lostzoneImg, {
+                        Sortable.create(lostzoneList, {
                             group: {
                                 name: "card"
                             },
